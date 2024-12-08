@@ -1,0 +1,132 @@
+
+:root {
+  --primary-color: #007bff;
+  --hover-color: #0056b3;
+  --background-color: #f4f4f4;
+  --table-border: #ccc;
+  --text-color: #333;
+  --button-color: #007bff;
+  --button-hover: #0056b3;
+  --input-bg: #fdfdfd;
+  --row-alt-bg: #f0f8ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.app {
+  padding: 20px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid var(--table-border);
+  background-color: var(--input-bg);
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--button-color);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+thead th {
+  padding: 12px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--row-alt-bg);
+}
+
+tbody tr td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--table-border);
+}
+
+@media (max-width: 768px) {
+  .input input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+    flex-direction: column;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  tbody tr td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  tbody tr td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
